@@ -1,0 +1,32 @@
+{
+    "name": "hbgl/phpstan-my-extension",
+    "type": "phpstan-extension",
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "Hbgl\\PhpstanMyExtension\\": "src/",
+            "Hbgl\\PhpstanMyExtensionScripts\\": "scripts/"
+        }
+    },
+    "authors": [
+        {
+            "name": "hbgl",
+            "email": "gohbgl@gmail.com"
+        }
+    ],
+    "scripts": {
+        "post-package-install": [
+            "Hbgl\\PhpstanMyExtensionScripts\\ExtractPhpstanSourceComposerScript::postPackageInstall"
+        ],
+        "post-package-update": [
+            "Hbgl\\PhpstanMyExtensionScripts\\ExtractPhpstanSourceComposerScript::postPackageUpdate"
+        ],
+        "phpstan": "phpstan analyze --level=max -- src scripts"
+    },
+    "require-dev": {
+        "composer/composer": "^2.8"
+    },
+    "require": {
+        "phpstan/phpstan": "^2.1"
+    }
+}
