@@ -52,7 +52,7 @@ class ExtractPhpstanSourceComposerScript
         $fs->ensureDirectoryExists($extractDir);
 
         $phar = new Phar($pharPath);
-        $phar->extractTo($extractDir, 'src/');
+        $phar->extractTo($extractDir, ['src/', 'vendor/']);
     }
 
     private function findPharPath(): string
